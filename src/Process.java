@@ -5,14 +5,22 @@ public class Process {
     private int arrivalTime;
     private int blockedTime;
     private int burstTime;
+    private final String[] possibleState = {"READY", "RUNNING", "BLOCKED", "TERMINATED"};
+    private int state;
+    private final int  READY = 0 ; // States can either be 0 1 2 or 3 each int directly correlates to the possibleState array
+    private final int  RUNNING = 1 ;
+    private final int  BLOCKED = 2 ;
+    private final int  TERMINATED = 3 ;
 
     public Process(){
-        this.pid = 0;
-        this.task = 0;
-        this.priority = 0;
-        this.arrivalTime = 0;
-        this.blockedTime = 0;
-        this.burstTime = 0;
+        //generate random values for the process
+        this.pid = (int) (Math.random() * 100);
+        this.task = (int) (Math.random() * 100);
+        this.priority = (int) (Math.random() * 100);
+        this.arrivalTime = (int) (Math.random() * 100);
+        this.blockedTime = (int) (Math.random() * 100);
+        this.burstTime = (int) (Math.random() * 100);
+        state = READY;
     }
 
     public Process(int pid, int task, int priority, int arrivalTime, int blockedTime, int burstTime) {
@@ -22,6 +30,7 @@ public class Process {
         this.arrivalTime = arrivalTime;
         this.blockedTime = blockedTime;
         this.burstTime = burstTime;
+        state = READY;
     }
 
     public int getPid( ) {
@@ -70,6 +79,31 @@ public class Process {
 
     public void setBurstTime(int burstTime) {
         this.burstTime = burstTime;
+    }
+
+    public int getState( ) {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    //set state to ready
+    public void setReady(){
+        this.state = READY;
+    }
+    //set state to running
+    public void setRunning(){
+        this.state = RUNNING;
+    }
+    //set state to blocked
+    public void setBlocked(){
+        this.state = BLOCKED;
+    }
+    //set state to terminated
+    public void setTerminated(){
+        this.state = TERMINATED;
     }
 
     @Override

@@ -1,4 +1,6 @@
 public class SharedResource {
+
+      
     private int id;
     private int data;
 
