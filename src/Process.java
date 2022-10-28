@@ -11,6 +11,7 @@ public class Process {
     public final int  RUNNING = 1 ;
     private final int  BLOCKED = 2 ;
     private final int  TERMINATED = 3 ;
+    private final int  WAITING = 4 ;
 
     public Process(){
         //generate random values for the process
@@ -20,7 +21,7 @@ public class Process {
         this.arrivalTime = (int) (Math.random() * 30);
         this.blockedTime = 0;
         this.burstTime = (int) ((Math.random() * 100)+1);
-        state = READY;
+        state = WAITING;
     }
 
     public Process(int pid, int task, int priority, int arrivalTime, int blockedTime, int burstTime) {

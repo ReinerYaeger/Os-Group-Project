@@ -32,7 +32,7 @@ public class Main {
                 Process process1 = pq.poll();
                 Process process2 = pq.poll();
 
-                //The smaller value takes for the tasks takes higher Priority
+                //The smaller value for the tasks takes higher Priority
 
                 if (process1.getTask() < process2.getTask()) {
                     core1.stageProcess(process1);

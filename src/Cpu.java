@@ -18,6 +18,7 @@ public class Cpu {
     }
 
     public void stageProcess(Process process){
+        process.setReady();
         this.process = process;
     }
 
