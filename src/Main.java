@@ -21,9 +21,6 @@ public class Main {
 
         int srlIndex = 0;
 
-
-
-
         while(!pq.isEmpty()){
 
             if(!pq.isEmpty()) {
@@ -35,24 +32,36 @@ public class Main {
                 Process process1 = pq.poll();
                 Process process2 = pq.poll();
 
+                //The smaller value takes for the tasks takes higher Priority
+
                 if (process1.getTask() < process2.getTask()) {
                     core1.stageProcess(process1);
                     System.out.println("Core1: " + process1);
                     srlIndex = core1.executeProcess(srl, srlIndex, process1.getTask());
 
                     core2.stageProcess(process2);
-                    process2.setBlockedTime(process1.getBurstTime());
+                    if((process1.getTask() == 1 || process1.getTask() == 0) &&
+                            (process2.getTask() ==1 || process2.getTask() == 0)) {
+                        System.out.println("Locking Mechanism : Mutual Exclusion");
+                        process2.setBlocked();
+                        process2.setBlockedTime(process1.getBurstTime());
+                    }
                     System.out.println("Core2: " + process1);
                     srlIndex = core2.executeProcess(srl, srlIndex, process2.getTask());
                 } else {
-                    System.out.println("Core1: " + process1);
+                    System.out.println("Core1: " + process2);
                     core1.stageProcess(process2);
                     srlIndex =  core1.executeProcess(srl, srlIndex, process2.getTask());
 
                     core2.stageProcess(process1);
-                    process1.setBlockedTime(process2.getBurstTime());
+                    if((process1.getTask() == 1 || process1.getTask() == 0) &&
+                            (process2.getTask() ==1 || process2.getTask() == 0)) {
+                        System.out.println("Locking Mechanism : Mutual Exclusion");
+                        process2.setBlocked();
+                        process1.setBlockedTime(process2.getBurstTime());
+                    }
                     System.out.println("Core2: " + process1);
-                    srlIndex =  core2.executeProcess(srl, srlIndex, process1.getTask());
+                    srlIndex = core2.executeProcess(srl, srlIndex, process1.getTask());
                     }
                 }
             }

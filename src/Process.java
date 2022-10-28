@@ -17,7 +17,7 @@ public class Process {
         this.pid = (int) (Math.random() * 100);
         this.task = (int) (Math.random() * 4);
         this.priority = (int) (Math.random() * 4);
-        this.arrivalTime = (int) (Math.random() * 28);
+        this.arrivalTime = (int) (Math.random() * 30);
         this.blockedTime = 0;
         this.burstTime = (int) ((Math.random() * 100)+1);
         state = READY;
