@@ -60,13 +60,11 @@ public class Cpu {
             System.out.println("Total: "+total);
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
             System.out.println();
-
-            process.setTerminated();
-            System.out.println("Process Id: "+ process.getPid());
-            System.out.println("Process State: " + process.getState());
         }
 
         process.setTerminated();
+        System.out.println("Process Id: "+ process.getPid());
+        System.out.println("Process State: " + process.getState());
         return srlIndex+1;
     }
 

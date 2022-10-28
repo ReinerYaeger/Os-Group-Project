@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args){
 
-        process = new Process();
+        process = new Process(0);
         srl = new ArrayList<>();
         pq = new PriorityQueue<Process>(20, new ProComparator());
 
@@ -92,7 +92,7 @@ public class Main {
 
         //loop that counts to 20
         for(int i = 0; i < 20; i++) {
-            pq.add(new Process());
+            pq.add(new Process(i));
         }
         for(Process l : pq){
             System.out.println(l);

@@ -13,9 +13,9 @@ public class Process {
     private final int  TERMINATED = 3 ;
     private final int  WAITING = 4 ;
 
-    public Process(){
+    public Process(int i){
         //generate random values for the process
-        this.pid = (int) (Math.random() * 100);
+        this.pid = i;
         this.task = (int) (Math.random() * 4);
         this.priority = (int) (Math.random() * 4);
         this.arrivalTime = (int) (Math.random() * 30);
@@ -31,7 +31,7 @@ public class Process {
         this.arrivalTime = arrivalTime;
         this.blockedTime = blockedTime;
         this.burstTime = burstTime;
-        state = READY;
+        state = WAITING;
     }
 
     public int getPid( ) {
@@ -110,6 +110,8 @@ public class Process {
     public void setTerminated(){
         this.state = TERMINATED;
     }
+
+
 
     @Override
     public String toString( ) {
