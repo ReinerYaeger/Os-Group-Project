@@ -1,25 +1,25 @@
 public class Process {
     private int pid;
-    private int task;
     private int priority;
     private int arrivalTime;
     private int blockedTime;
     private int burstTime;
-    private final String[] possibleState = {"READY", "RUNNING", "BLOCKED", "TERMINATED"};
+    //Task 0 Add Record 1 Delete Record 2 Read Record 3 Calculate Record
+    private int task;
     private int state;
     private final int  READY = 0 ; // States can either be 0 1 2 or 3 each int directly correlates to the possibleState array
-    private final int  RUNNING = 1 ;
+    public final int  RUNNING = 1 ;
     private final int  BLOCKED = 2 ;
     private final int  TERMINATED = 3 ;
 
     public Process(){
         //generate random values for the process
         this.pid = (int) (Math.random() * 100);
-        this.task = (int) (Math.random() * 100);
-        this.priority = (int) (Math.random() * 100);
-        this.arrivalTime = (int) (Math.random() * 100);
-        this.blockedTime = (int) (Math.random() * 100);
-        this.burstTime = (int) (Math.random() * 100);
+        this.task = (int) (Math.random() * 4);
+        this.priority = (int) (Math.random() * 4);
+        this.arrivalTime = (int) (Math.random() * 28);
+        this.blockedTime = 0;
+        this.burstTime = (int) ((Math.random() * 100)+1);
         state = READY;
     }
 
@@ -71,6 +71,10 @@ public class Process {
 
     public void setBlockedTime(int blockedTime) {
         this.blockedTime = blockedTime;
+    }
+
+    public void incrementBlockedTime(){
+        this.blockedTime++;
     }
 
     public int getBurstTime( ) {
