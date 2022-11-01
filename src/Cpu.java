@@ -36,7 +36,6 @@ public class Cpu {
             srl.get(srlIndex).setData(random);
             System.out.println("Data Added: = "+ random);
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
-            System.out.println();
         }else if (task == 1) {
             System.out.println("Deleting Data for Index " + srlIndex);
             System.out.println("Shared Resource Previous value "+  srl.get(srlIndex).getData());
@@ -44,12 +43,10 @@ public class Cpu {
                 srl.get(srlIndex).setData(0);
             System.out.println("Data Deleted: = " + srl.get(srlIndex).getData());
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
-            System.out.println();
         }else if(task == 2) {
             System.out.println("Reading Data for Index " + srlIndex);
             System.out.println("Data: "+srl.get(srlIndex).getData());
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
-            System.out.println();
         }else {
             System.out.println("Calculating Data");
             int total = 0;
@@ -59,12 +56,11 @@ public class Cpu {
             }
             System.out.println("Total: "+total);
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
-            System.out.println();
         }
 
         process.setTerminated();
-        System.out.println("Process Id: "+ process.getPid());
         System.out.println("Process State: " + process.getState());
+        System.out.println();
         return srlIndex+1;
     }
 

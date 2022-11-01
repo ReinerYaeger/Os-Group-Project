@@ -15,6 +15,7 @@ public class Main {
 
         loadResources();
         loadProcess();
+        System.out.println("\n-----------------------------------------------------------------------------------------");
 
         Cpu core1 =new Cpu();
         Cpu core2 =new Cpu();
@@ -44,9 +45,10 @@ public class Main {
                             (process2.getTask() ==1 || process2.getTask() == 0)) {
                         System.out.println("Locking Mechanism : Mutual Exclusion");
                         process2.setBlocked();
+                        System.out.println("Process State: " +process2.getState());
                         process2.setBlockedTime(process1.getBurstTime());
                     }
-                    System.out.println("Core2: " + process1);
+                    System.out.println("Core2: " + process2);
                     srlIndex = core2.executeProcess(srl, srlIndex, process2.getTask());
                 } else {
                     System.out.println("Core1: " + process2);
@@ -57,7 +59,8 @@ public class Main {
                     if((process1.getTask() == 1 || process1.getTask() == 0) &&
                             (process2.getTask() ==1 || process2.getTask() == 0)) {
                         System.out.println("Locking Mechanism : Mutual Exclusion");
-                        process2.setBlocked();
+                        process1.setBlocked();
+                        System.out.println("Process State: " + process1.getState());
                         process1.setBlockedTime(process2.getBurstTime());
                     }
                     System.out.println("Core2: " + process1);
@@ -66,14 +69,25 @@ public class Main {
                 }
             }
 
+        System.out.println("-----------------------------------------------------------------------------------------");
+
         System.out.println("Accessed Resources");
         for(SharedResource sr : srl){
             System.out.println(sr);
         }
 
-        System.out.println("Printing Processes");
-        for(Process pro : pq){
-            System.out.println(pro);
+        System.out.println("\nChecking Processes");
+        try {
+            if (pq.isEmpty()) {
+                System.out.println("Process all processes have been executed");
+            }else {
+                for (Process pro : pq) {
+                    System.out.println(pro);
+                    throw new Exception("Process not executed");
+                }
+            }
+        }catch (Exception e){
+            System.err.println("Processes did not execute properly");
         }
     }
 
