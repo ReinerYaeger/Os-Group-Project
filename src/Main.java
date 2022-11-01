@@ -52,6 +52,8 @@ public class Main {
                         process2.setBlockedTime(process1.getBurstTime());
                     }
 
+                    //Assigning the process to the CPU core 2
+                    core2.stageProcess(process2);
                     //Executing the process and storing the index for the next resource
                     System.out.println("Core2: " + process2);
                     srlIndex = core2.executeProcess(srl, srlIndex, process2.getTask());
@@ -62,9 +64,6 @@ public class Main {
                     core1.stageProcess(process2);
                     srlIndex =  core1.executeProcess(srl, srlIndex, process2.getTask());
 
-                    //Assigning the process to the CPU core 2
-                    core2.stageProcess(process1);
-
                      //Checking for deadlock
                     if((process1.getTask() == 1 || process1.getTask() == 0) &&
                             (process2.getTask() ==1 || process2.getTask() == 0)) {
@@ -73,6 +72,8 @@ public class Main {
                         System.out.println("Process State: " + process1.getState());
                         process1.setBlockedTime(process2.getBurstTime());
                     }
+                    //Assigning the process to the CPU core 2
+                    core2.stageProcess(process1);
 
                     //Executing the process and storing the index for the next resource
                     System.out.println("Core2: " + process1);
