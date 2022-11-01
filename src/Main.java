@@ -25,22 +25,25 @@ public class Main {
         while(!pq.isEmpty()){
 
             if(!pq.isEmpty()) {
-                //Load the process into the cpu without executing it
-                //Verify operation before execution
-                //Add use task the priority operator to determine the operation
 
-                //Implement blocking
+                //Getting Processes from the priority queue
                 Process process1 = pq.poll();
                 Process process2 = pq.poll();
 
                 //The smaller value for the tasks takes higher Priority
-
                 if (process1.getTask() < process2.getTask()) {
+
+                    //Assigning the process to the CPU core 1
                     core1.stageProcess(process1);
                     System.out.println("Core1: " + process1);
+
+                    //Executing the process and storing the index for the next resource
                     srlIndex = core1.executeProcess(srl, srlIndex, process1.getTask());
 
+                    //Assigning the process to the CPU core 2
                     core2.stageProcess(process2);
+
+                    //Checking for deadlock
                     if((process1.getTask() == 1 || process1.getTask() == 0) &&
                             (process2.getTask() ==1 || process2.getTask() == 0)) {
                         System.out.println("Locking Mechanism : Mutual Exclusion");
@@ -48,14 +51,21 @@ public class Main {
                         System.out.println("Process State: " +process2.getState());
                         process2.setBlockedTime(process1.getBurstTime());
                     }
+
+                    //Executing the process and storing the index for the next resource
                     System.out.println("Core2: " + process2);
                     srlIndex = core2.executeProcess(srl, srlIndex, process2.getTask());
                 } else {
+
+                    //Assigning the process to the CPU core 1
                     System.out.println("Core1: " + process2);
                     core1.stageProcess(process2);
                     srlIndex =  core1.executeProcess(srl, srlIndex, process2.getTask());
 
+                    //Assigning the process to the CPU core 2
                     core2.stageProcess(process1);
+
+                     //Checking for deadlock
                     if((process1.getTask() == 1 || process1.getTask() == 0) &&
                             (process2.getTask() ==1 || process2.getTask() == 0)) {
                         System.out.println("Locking Mechanism : Mutual Exclusion");
@@ -63,6 +73,8 @@ public class Main {
                         System.out.println("Process State: " + process1.getState());
                         process1.setBlockedTime(process2.getBurstTime());
                     }
+
+                    //Executing the process and storing the index for the next resource
                     System.out.println("Core2: " + process1);
                     srlIndex = core2.executeProcess(srl, srlIndex, process1.getTask());
                     }
@@ -70,12 +82,12 @@ public class Main {
             }
 
         System.out.println("-----------------------------------------------------------------------------------------");
-
+        //Printing the final state of the resources
         System.out.println("Accessed Resources");
         for(SharedResource sr : srl){
             System.out.println(sr);
         }
-
+        //Printing the final state of the process queue
         System.out.println("\nChecking Processes");
         try {
             if (pq.isEmpty()) {
@@ -104,7 +116,7 @@ public class Main {
 
     public static PriorityQueue loadProcess(){
 
-        //loop that counts to 20
+        //load processes
         for(int i = 0; i < 20; i++) {
             pq.add(new Process(i));
         }

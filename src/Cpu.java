@@ -29,25 +29,34 @@ public class Cpu {
 
         System.out.println("Process Id: "+ process.getPid());
         System.out.println("Process State: " + process.getState());
-        if(task == 0) {
 
+        //Adding Data to the Shared Resource
+        if(task == 0) {
             int random = (int) (Math.random() * 100);
             System.out.println("Adding Data for Index " + srlIndex);
             srl.get(srlIndex).setData(random);
             System.out.println("Data Added: = "+ random);
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
         }else if (task == 1) {
+
+            //Delete data from the Shared Resource
             System.out.println("Deleting Data for Index " + srlIndex);
             System.out.println("Shared Resource Previous value "+  srl.get(srlIndex).getData());
+
+            //Setting the data to 0
             if(srl.get(srlIndex).getData() != 0)
                 srl.get(srlIndex).setData(0);
             System.out.println("Data Deleted: = " + srl.get(srlIndex).getData());
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
         }else if(task == 2) {
+
+            //Read data from the Shared Resource
             System.out.println("Reading Data for Index " + srlIndex);
             System.out.println("Data: "+srl.get(srlIndex).getData());
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
         }else {
+
+            //Calculating data from the shared resource
             System.out.println("Calculating Data");
             int total = 0;
 
@@ -58,6 +67,7 @@ public class Cpu {
             System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
         }
 
+        //Terminating the process
         process.setTerminated();
         System.out.println("Process State: " + process.getState());
         System.out.println();
@@ -72,7 +82,7 @@ public class Cpu {
         this.process = process;
     }
 
-    public List getSrl( ) {
+    public ArrayList<SharedResource> getSrl( ) {
         return srl;
     }
 
