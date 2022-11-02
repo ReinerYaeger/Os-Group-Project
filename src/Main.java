@@ -40,9 +40,6 @@ public class Main {
                     //Executing the process and storing the index for the next resource
                     srlIndex = core1.executeProcess(srl, srlIndex, process1.getTask());
 
-                    //Assigning the process to the CPU core 2
-                    core2.stageProcess(process2);
-
                     //Checking for deadlock
                     if((process1.getTask() == 1 || process1.getTask() == 0) &&
                             (process2.getTask() ==1 || process2.getTask() == 0)) {
