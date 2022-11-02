@@ -22,40 +22,38 @@ public class Cpu {
         this.process = process;
     }
 
-    public int executeProcess(ArrayList<SharedResource> srl,int index, int task){
-
-        int srlIndex = index;
+    public void executeProcess(ArrayList<SharedResource> srl,int task){
         process.setRunning();
 
         System.out.println("Process Id: "+ process.getPid());
         System.out.println("Process State: " + process.getState());
 
-        //Adding Data to the Shared Resource
+        //Adding Data to the Shared Resource of a random index
         if(task == 0) {
-            int random = (int) (Math.random() * 100);
-            System.out.println("Adding Data for Index " + srlIndex);
-            srl.get(srlIndex).setData(random);
-            System.out.println("Data Added: = "+ random);
-            System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
+            int randomData = (int) (Math.random() * 100);
+            int randomIndex = (int) (Math.random() * 20);
+            System.out.println("Adding Data for Index " + randomIndex);
+            srl.get(randomIndex).setData(randomData);
+            System.out.println("Data Added: = "+ randomData);
+            System.out.println("Shared Resource "+  srl.get(randomIndex).toString());
         }else if (task == 1) {
-
+            int randomIndex = (int) (Math.random() * 20);
             //Delete data from the Shared Resource
-            System.out.println("Deleting Data for Index " + srlIndex);
-            System.out.println("Shared Resource Previous value "+  srl.get(srlIndex).getData());
+            System.out.println("Deleting Data for Index " + randomIndex);
+            System.out.println("Shared Resource Previous value "+  srl.get(randomIndex).getData());
 
-            //Setting the data to 0
-            if(srl.get(srlIndex).getData() != 0)
-                srl.get(srlIndex).setData(0);
-            System.out.println("Data Deleted: = " + srl.get(srlIndex).getData());
-            System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
+            //Setting the data to 0 of a random index
+            srl.get(randomIndex).setData(0);
+            System.out.println("Data Deleted: = " + srl.get(randomIndex).getData());
+            System.out.println("Shared Resource "+  srl.get(randomIndex).toString());
         }else if(task == 2) {
-
+            int randomIndex = (int) (Math.random() * 20);
             //Read data from the Shared Resource
-            System.out.println("Reading Data for Index " + srlIndex);
-            System.out.println("Data: "+srl.get(srlIndex).getData());
-            System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
+            System.out.println("Reading Data for Index " + randomIndex);
+            System.out.println("Data: "+srl.get(randomIndex).getData());
+            System.out.println("Shared Resource "+  srl.get(randomIndex).toString());
         }else {
-
+            int randomIndex = (int) (Math.random() * 20);
             //Calculating data from the shared resource
             System.out.println("Calculating Data");
             int total = 0;
@@ -64,14 +62,13 @@ public class Cpu {
                 total = srTmp.getData()+total;
             }
             System.out.println("Total: "+total);
-            System.out.println("Shared Resource "+  srl.get(srlIndex).toString());
+            System.out.println("Shared Resource "+  srl.get(randomIndex).toString());
         }
 
         //Terminating the process
         process.setTerminated();
         System.out.println("Process State: " + process.getState());
         System.out.println();
-        return srlIndex+1;
     }
 
     public Process getProcess( ) {

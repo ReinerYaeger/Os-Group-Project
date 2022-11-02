@@ -20,8 +20,6 @@ public class Main {
         Cpu core1 =new Cpu();
         Cpu core2 =new Cpu();
 
-        int srlIndex = 0;
-
         while(!pq.isEmpty()){
 
             if(!pq.isEmpty()) {
@@ -38,7 +36,7 @@ public class Main {
                     System.out.println("Core1: " + process1);
 
                     //Executing the process and storing the index for the next resource
-                    srlIndex = core1.executeProcess(srl, srlIndex, process1.getTask());
+                    core1.executeProcess(srl, process1.getTask());
 
                     //Assigning the process to the CPU core 2
                     core2.stageProcess(process2);
@@ -56,13 +54,13 @@ public class Main {
                     core2.stageProcess(process2);
                     //Executing the process and storing the index for the next resource
                     System.out.println("Core2: " + process2);
-                    srlIndex = core2.executeProcess(srl, srlIndex, process2.getTask());
+                    core2.executeProcess(srl, process2.getTask());
                 } else {
 
                     //Assigning the process to the CPU core 1
                     System.out.println("Core1: " + process2);
                     core1.stageProcess(process2);
-                    srlIndex =  core1.executeProcess(srl, srlIndex, process2.getTask());
+                    core1.executeProcess(srl, process2.getTask());
 
                      //Checking for deadlock
                     if((process1.getTask() == 1 || process1.getTask() == 0) &&
@@ -77,7 +75,7 @@ public class Main {
 
                     //Executing the process and storing the index for the next resource
                     System.out.println("Core2: " + process1);
-                    srlIndex = core2.executeProcess(srl, srlIndex, process1.getTask());
+                    core2.executeProcess(srl, process1.getTask());
                     }
                 }
             }
