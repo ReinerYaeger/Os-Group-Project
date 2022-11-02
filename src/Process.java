@@ -17,7 +17,7 @@ public class Process {
         //generate random values for the process
         this.pid = i;
         this.task = (int) (Math.random() * 4);
-        this.priority = (int) ((Math.random() * 5)+1);
+        this.priority = (int) ((Math.random() * 4));
         this.arrivalTime = (int) (Math.random() * 30);
         this.blockedTime = 0;
         this.burstTime = (int) ((Math.random() * 5)+1);
