@@ -1,0 +1,238 @@
+SharedResource{id=0, data=0}
+SharedResource{id=1, data=0}
+SharedResource{id=2, data=0}
+SharedResource{id=3, data=0}
+SharedResource{id=4, data=0}
+SharedResource{id=5, data=0}
+SharedResource{id=6, data=0}
+SharedResource{id=7, data=0}
+SharedResource{id=8, data=0}
+SharedResource{id=9, data=0}
+SharedResource{id=10, data=0}
+SharedResource{id=11, data=0}
+SharedResource{id=12, data=0}
+SharedResource{id=13, data=0}
+SharedResource{id=14, data=0}
+SharedResource{id=15, data=0}
+SharedResource{id=16, data=0}
+SharedResource{id=17, data=0}
+SharedResource{id=18, data=0}
+SharedResource{id=19, data=0}
+Process{pid=5, task=0, priority=0, arrivalTime=25, blockedTime=0, burstTime=3}
+Process{pid=16, task=3, priority=1, arrivalTime=6, blockedTime=0, burstTime=2}
+Process{pid=11, task=0, priority=0, arrivalTime=10, blockedTime=0, burstTime=1}
+Process{pid=18, task=1, priority=1, arrivalTime=21, blockedTime=0, burstTime=2}
+Process{pid=4, task=3, priority=2, arrivalTime=28, blockedTime=0, burstTime=2}
+Process{pid=0, task=2, priority=1, arrivalTime=27, blockedTime=0, burstTime=3}
+Process{pid=14, task=0, priority=0, arrivalTime=20, blockedTime=0, burstTime=1}
+Process{pid=8, task=3, priority=2, arrivalTime=29, blockedTime=0, burstTime=2}
+Process{pid=3, task=2, priority=2, arrivalTime=22, blockedTime=0, burstTime=3}
+Process{pid=19, task=1, priority=2, arrivalTime=15, blockedTime=0, burstTime=1}
+Process{pid=10, task=3, priority=2, arrivalTime=20, blockedTime=0, burstTime=5}
+Process{pid=2, task=0, priority=1, arrivalTime=28, blockedTime=0, burstTime=4}
+Process{pid=12, task=3, priority=3, arrivalTime=14, blockedTime=0, burstTime=4}
+Process{pid=6, task=0, priority=3, arrivalTime=17, blockedTime=0, burstTime=2}
+Process{pid=13, task=3, priority=1, arrivalTime=24, blockedTime=0, burstTime=5}
+Process{pid=15, task=2, priority=3, arrivalTime=1, blockedTime=0, burstTime=2}
+Process{pid=7, task=2, priority=3, arrivalTime=18, blockedTime=0, burstTime=2}
+Process{pid=1, task=1, priority=3, arrivalTime=16, blockedTime=0, burstTime=2}
+Process{pid=17, task=2, priority=2, arrivalTime=23, blockedTime=0, burstTime=5}
+Process{pid=9, task=1, priority=3, arrivalTime=27, blockedTime=0, burstTime=3}
+
+-----------------------------------------------------------------------------------------
+Core1: Process{pid=11, task=0, priority=0, arrivalTime=10, blockedTime=0, burstTime=1}
+Process Id: 11
+Process State: 1
+Adding Data for Index 13
+Data Added: = 62
+Shared Resource SharedResource{id=13, data=62}
+Process State: 3
+
+Locking Mechanism : Mutual Exclusion
+Process State: 2
+Core2: Process{pid=5, task=0, priority=0, arrivalTime=25, blockedTime=1, burstTime=3}
+Process Id: 5
+Process State: 1
+Adding Data for Index 8
+Data Added: = 36
+Shared Resource SharedResource{id=8, data=36}
+Process State: 3
+
+Core1: Process{pid=14, task=0, priority=0, arrivalTime=20, blockedTime=0, burstTime=1}
+Process Id: 14
+Process State: 1
+Adding Data for Index 17
+Data Added: = 87
+Shared Resource SharedResource{id=17, data=87}
+Process State: 3
+
+Core2: Process{pid=16, task=3, priority=1, arrivalTime=6, blockedTime=0, burstTime=2}
+Process Id: 16
+Process State: 1
+Calculating Data
+Total: 185
+Shared Resource SharedResource{id=0, data=0}
+Process State: 3
+
+Core1: Process{pid=18, task=1, priority=1, arrivalTime=21, blockedTime=0, burstTime=2}
+Process Id: 18
+Process State: 1
+Deleting Data for Index 10
+Shared Resource Previous value 0
+Data Deleted: = 0
+Shared Resource SharedResource{id=10, data=0}
+Process State: 3
+
+Core2: Process{pid=0, task=2, priority=1, arrivalTime=27, blockedTime=0, burstTime=3}
+Process Id: 0
+Process State: 1
+Reading Data for Index 19
+Data: 0
+Shared Resource SharedResource{id=19, data=0}
+Process State: 3
+
+Core1: Process{pid=2, task=0, priority=1, arrivalTime=28, blockedTime=0, burstTime=4}
+Process Id: 2
+Process State: 1
+Adding Data for Index 1
+Data Added: = 7
+Shared Resource SharedResource{id=1, data=7}
+Process State: 3
+
+Core2: Process{pid=13, task=3, priority=1, arrivalTime=24, blockedTime=0, burstTime=5}
+Process Id: 13
+Process State: 1
+Calculating Data
+Total: 192
+Shared Resource SharedResource{id=14, data=0}
+Process State: 3
+
+Core1: Process{pid=3, task=2, priority=2, arrivalTime=22, blockedTime=0, burstTime=3}
+Process Id: 3
+Process State: 1
+Reading Data for Index 6
+Data: 0
+Shared Resource SharedResource{id=6, data=0}
+Process State: 3
+
+Core2: Process{pid=8, task=3, priority=2, arrivalTime=29, blockedTime=0, burstTime=2}
+Process Id: 8
+Process State: 1
+Calculating Data
+Total: 192
+Shared Resource SharedResource{id=10, data=0}
+Process State: 3
+
+Core1: Process{pid=4, task=3, priority=2, arrivalTime=28, blockedTime=0, burstTime=2}
+Process Id: 4
+Process State: 1
+Calculating Data
+Total: 192
+Shared Resource SharedResource{id=0, data=0}
+Process State: 3
+
+Core2: Process{pid=10, task=3, priority=2, arrivalTime=20, blockedTime=0, burstTime=5}
+Process Id: 10
+Process State: 1
+Calculating Data
+Total: 192
+Shared Resource SharedResource{id=0, data=0}
+Process State: 3
+
+Core1: Process{pid=19, task=1, priority=2, arrivalTime=15, blockedTime=0, burstTime=1}
+Process Id: 19
+Process State: 1
+Deleting Data for Index 10
+Shared Resource Previous value 0
+Data Deleted: = 0
+Shared Resource SharedResource{id=10, data=0}
+Process State: 3
+
+Core2: Process{pid=17, task=2, priority=2, arrivalTime=23, blockedTime=0, burstTime=5}
+Process Id: 17
+Process State: 1
+Reading Data for Index 9
+Data: 0
+Shared Resource SharedResource{id=9, data=0}
+Process State: 3
+
+Core1: Process{pid=6, task=0, priority=3, arrivalTime=17, blockedTime=0, burstTime=2}
+Process Id: 6
+Process State: 1
+Adding Data for Index 15
+Data Added: = 38
+Shared Resource SharedResource{id=15, data=38}
+Process State: 3
+
+Locking Mechanism : Mutual Exclusion
+Process State: 2
+Core2: Process{pid=9, task=1, priority=3, arrivalTime=27, blockedTime=2, burstTime=3}
+Process Id: 9
+Process State: 1
+Deleting Data for Index 6
+Shared Resource Previous value 0
+Data Deleted: = 0
+Shared Resource SharedResource{id=6, data=0}
+Process State: 3
+
+Core1: Process{pid=15, task=2, priority=3, arrivalTime=1, blockedTime=0, burstTime=2}
+Process Id: 15
+Process State: 1
+Reading Data for Index 0
+Data: 0
+Shared Resource SharedResource{id=0, data=0}
+Process State: 3
+
+Core2: Process{pid=12, task=3, priority=3, arrivalTime=14, blockedTime=0, burstTime=4}
+Process Id: 12
+Process State: 1
+Calculating Data
+Total: 230
+Shared Resource SharedResource{id=0, data=0}
+Process State: 3
+
+Core1: Process{pid=1, task=1, priority=3, arrivalTime=16, blockedTime=0, burstTime=2}
+Process Id: 1
+Process State: 1
+Deleting Data for Index 3
+Shared Resource Previous value 0
+Data Deleted: = 0
+Shared Resource SharedResource{id=3, data=0}
+Process State: 3
+
+Core2: Process{pid=7, task=2, priority=3, arrivalTime=18, blockedTime=0, burstTime=2}
+Process Id: 7
+Process State: 1
+Reading Data for Index 4
+Data: 0
+Shared Resource SharedResource{id=4, data=0}
+Process State: 3
+
+-----------------------------------------------------------------------------------------
+Accessed Resources
+SharedResource{id=0, data=0}
+SharedResource{id=1, data=7}
+SharedResource{id=2, data=0}
+SharedResource{id=3, data=0}
+SharedResource{id=4, data=0}
+SharedResource{id=5, data=0}
+SharedResource{id=6, data=0}
+SharedResource{id=7, data=0}
+SharedResource{id=8, data=36}
+SharedResource{id=9, data=0}
+SharedResource{id=10, data=0}
+SharedResource{id=11, data=0}
+SharedResource{id=12, data=0}
+SharedResource{id=13, data=62}
+SharedResource{id=14, data=0}
+SharedResource{id=15, data=38}
+SharedResource{id=16, data=0}
+SharedResource{id=17, data=87}
+SharedResource{id=18, data=0}
+SharedResource{id=19, data=0}
+
+Checking Processes
+Process all processes have been executed
+
+Process finished with exit code 0
+
